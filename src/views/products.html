@@ -25,6 +25,10 @@
           <i class="icofont-cart-alt icofont-1x"></i>
           <span>Cart (0)</span>
         </a>
+        <a @click="toggleSidebar" class="top-bar-cart-link">
+          <i class="icofont-cart-alt icofont-1x"></i>
+          <span>Cart ({{totalQuantity}})</span>
+        </a>
       </header>
 
       <main class="wrapper">
@@ -261,7 +265,16 @@
         </div>
       </main>
 
-    </div>
+      <sidebar
+        :cart="cart"
+        v-if="showSidebar"
+        :toggle="toggleSidebar"
+        :inventory="inventory"
+        :remove="removeItem"
+      />
 
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../app.js"></script>
   </body>
 </html>
